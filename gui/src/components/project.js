@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
 import { withRouter } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import logo from "../icons/addProj.png";
@@ -34,7 +35,7 @@ class Project extends Component {
 
     try {
       const response = await fetch(
-        `http://localhost:8001/api/projectWithBugs/${this.props.location.state.id_p}`
+        `http://localhost:8001/api/projects/${this.props.location.state.id_p}?inclBugs=true`
       );
       const data = await response.json();
       const bugs = new Array();
@@ -95,10 +96,6 @@ class Project extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log(`updated... is data loading? ${this.state.loading}`);
     console.log(`updated... is data loaded? ${this.state.loaded}`);
-
-    // if (prevState.loaded !== this.state.loaded && this.state.loaded) {
-    //     localStorage.setItem("Images", JSON.stringify(this.state.data.images))
-    // }
   }
 
   componentWillUnmount() {
@@ -167,7 +164,9 @@ class Project extends Component {
                     <TableRow>
                       <TableCell>Link GitHub:</TableCell>
                       <TableCell>
-                        {this.state.currentProject.link_git}
+                        <a h={`${this.state.currentProject.link_git}`}>
+                          {this.state.currentProject.link_git}
+                        </a>
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -183,17 +182,44 @@ class Project extends Component {
                   </TableBody>
                 </Table>
               </TableContainer>
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<EditIcon />}
+                style={{ color: "white", backgroundColor: "#931621" }}
+              >
+                <Link
+                  style={{
+                    display: "inline-block",
+                    textDecoration: "none",
+                    color: "white",
+                  }}
+                  to={{
+                    pathname: `/EditProject/${this.state.currentProject.id_proiect}`,
+                    state: {
+                      id_p: `${this.state.currentProject.id_proiect}`,
+                      desc: `${this.state.currentProject.descriere}`,
+                      link_git: `${this.state.currentProject.link_git}`,
+                      denumire: `${this.state.currentProject.denumire}`,
+                      id_categorie: `${this.state.currentProject.id_categorie}`,
+                    },
+                  }}
+                >
+                  Edit
+                </Link>
+              </Button>
             </div>
           </div>
         )}
-                  <Typography
-            id="welcomeMsg"
-            style={{ fontFamily: "", paddingBottom: "2.5%", paddingTop: "1.5%" }}
-            variant="h5"
-            color="textPrimary"
-          >
-            Lista bug-urilor
-          </Typography>
+        <Typography
+          id="welcomeMsg"
+          style={{ fontFamily: "", paddingBottom: "2.5%", paddingTop: "1.5%" }}
+          variant="h5"
+          color="textPrimary"
+        >
+          Lista bug-urilor
+        </Typography>
         <div className="container">
           <div className="center">
             <TableContainer component={Paper}>

@@ -107,7 +107,7 @@ class Home extends Component {
   }
 
   componentWillUnmount() {
-    localStorage.setItem("projects", JSON.stringify(this.state.data));
+    localStorage.setItem("projects", "[]");
     console.log("unmounted");
   }
 
@@ -243,26 +243,6 @@ class Home extends Component {
                             </Link>
                           </TableCell>
                           <TableCell align="left">{row.id_categorie}</TableCell>
-                          <TableCell align="right">
-                            <Link
-                              style={{
-                                textDecoration: "none",
-                                color: "#931621",
-                              }}
-                              to={{
-                                pathname: `/EditProject/${row.id_proiect}`,
-                                state: {
-                                  id_p: `${row.id_proiect}`,
-                                  desc: `${row.descriere}`,
-                                  link_git: `${row.link_git}`,
-                                  denumire: `${row.denumire}`,
-                                  id_categorie: `${row.id_categorie}`,
-                                },
-                              }}
-                            >
-                              <EditIcon />
-                            </Link>
-                          </TableCell>
                         </TableRow>
                       ))}
                   </TableBody>

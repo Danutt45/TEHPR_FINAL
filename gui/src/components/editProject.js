@@ -6,6 +6,13 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 import DeleteIcon from "@material-ui/icons/DeleteForever";
+import { TableContainer, TextField } from "@material-ui/core";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 class EditProject extends Component {
   constructor() {
@@ -13,7 +20,7 @@ class EditProject extends Component {
     this.state = {
       data: [],
       loading: false,
-      loaded: false
+      loaded: false,
     };
     this.deleteProject = this.deleteProject.bind(this);
     this.updateProject = this.updateProject.bind(this);
@@ -133,56 +140,60 @@ class EditProject extends Component {
     return (
       <div style={{ backgroundColor: "#FFE4C4", height: "100vh" }}>
         <form noValidate autoComplete="off">
-          <FormControl variant="filled">
-            <InputLabel htmlFor="component-filled">Project Id:</InputLabel>
-            <FilledInput
-              id="component-filled"
-              readOnly={true}
-              defaultValue={this.props.location.state.id_p}
-            />
-          </FormControl>
-          <br />
-          <FormControl variant="filled">
-            <InputLabel htmlFor="component-filled">Category Id:</InputLabel>
-            <FilledInput
-              id="component-filled"
-              readOnly={true}
-              defaultValue={this.props.location.state.id_categorie}
-            />
-          </FormControl>
-          <br />
-          <FormControl variant="filled">
-            <InputLabel htmlFor="component-filled">Name:</InputLabel>
-            <FilledInput
-              id="component-filled"
-              defaultValue={this.props.location.state.denumire}
-              onChange={this.handleNameChange}
-            />
-          </FormControl>
+          <div className="container"
+          style={{width: "50%"}}>
+          <TableContainer component={Paper} style={{ display: "inline-block" }}>
+            <Table aria-label="simple table">
+              <TableHead style={{ backgroundColor: "#FFE4C4" }}>
+                <TableRow>
+                  <TableCell>Id Proiect: </TableCell>
+                  <TableCell>
+                    #{this.props.location.state.id_p}
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Denumire:</TableCell>
+                  <TableCell>
+                      <TextField
+                        id="component-filled"
+                        defaultValue={this.props.location.state.denumire}
+                        onChange={this.handleNameChange}
+                      />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Descriere:</TableCell>
+                  <TableCell>
+                      <TextField
+                        id="component-filled"
+                        defaultValue={this.props.location.state.desc}
+                        onChange={this.handleDescriptionChange}
+                      />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Link GitHub:</TableCell>
+                  <TableCell>
+                      <TextField
+                        id="component-filled"
+                        defaultValue={this.props.location.state.link_git}
+                        onChange={this.handleGitLinkChange}
+                      />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Id Categorie:</TableCell>
+                  <TableCell>
+                    #{this.props.location.state.id_categorie}
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          </div>
 
-          <br />
-          <FormControl variant="filled">
-            <InputLabel htmlFor="component-filled">Description:</InputLabel>
-            <FilledInput
-              id="component-filled"
-              defaultValue={this.props.location.state.desc}
-              onChange={this.handleDescriptionChange}
-            />
-          </FormControl>
-
-          <br />
-          <FormControl variant="filled">
-            <InputLabel htmlFor="component-filled">Github Link </InputLabel>
-            <FilledInput
-              id="component-filled"
-              defaultValue={this.props.location.state.link_git}
-              onChange={this.handleGitLinkChange}
-            />
-          </FormControl>
-
-          <br />
-
-          <div style={{ height: "20px" }}></div>
           <Button
             variant="contained"
             color="primary"
@@ -193,7 +204,7 @@ class EditProject extends Component {
           >
             Save
           </Button>
-          <div style={{ width: "20px", height: "20px" }}></div>
+          
           <Button
             variant="contained"
             color="primary"
