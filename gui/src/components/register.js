@@ -82,7 +82,7 @@ class Register extends Component {
     console.log(props);
     if (!this.props.isRegistered) {
       return (
-        <div>
+        <div style={{ height: "37vw" }}>
           <Container
             id="registerConainer"
             style={{

@@ -10,7 +10,7 @@ import {
   Container,
   MenuItem,
 } from "@material-ui/core";
-import Autocomplete from "@material-ui/lab/Autocomplete"
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import { withRouter } from "react-router-dom";
 import { RETURN_USER } from "../redux/actionCreators";
 import { connect } from "react-redux";
@@ -28,7 +28,7 @@ class AddProject extends Component {
       link_git: "",
       user_select: [],
       categorii: [],
-      utilizatori: []
+      utilizatori: [],
     };
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeCategory = this.handleChangeCategory.bind(this);
@@ -41,7 +41,7 @@ class AddProject extends Component {
   handleUpdate = async (e) => {
     e.preventDefault();
 
-    var ids = this.state.user_select.map(u=>u.id_user);
+    var ids = this.state.user_select.map((u) => u.id_user);
 
     console.log(ids);
     const props = this.props;
@@ -134,7 +134,7 @@ class AddProject extends Component {
   }
 
   handleChangeUsers(e, v) {
-    console.log(v)
+    console.log(v);
     this.setState({
       user_select: v,
     });
@@ -148,7 +148,7 @@ class AddProject extends Component {
     return (
       <div
         style={{
-          backgroundColor: "#FFF6EB",
+          backgroundColor: "#d3d3d2",
           height: "120vh",
           minWidth: "100vw",
         }}
@@ -157,13 +157,13 @@ class AddProject extends Component {
         <Container
           id="logInContainer"
           style={{
-            backgroundColor: "#FFE4C4",
+            backgroundColor: "white",
             width: "400px",
             height: "50%",
             borderRadius: "25px",
+            outline: "#000000 solid 4px",
           }}
         >
-
           <FormControl fullWidth>
             <InputLabel htmlFor="name-input">Project name</InputLabel>
             <Input onChange={this.handleChangeName} id="name-input" />
@@ -216,7 +216,14 @@ class AddProject extends Component {
           </FormControl>
 
           <Button
-            style={{ backgroundColor: "#931621" }}
+            style={{
+              borderRadius: "20px",
+              color: "black",
+              backgroundColor: "white",
+              fontWeight: "bold",
+              fontFamily: "VAG Rounded",
+              outline: "black solid 2px",
+            }}
             onClick={this.handleUpdate}
             variant="contained"
             color="primary"

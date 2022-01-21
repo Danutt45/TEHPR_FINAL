@@ -31,7 +31,17 @@ class Nav extends Component {
                   props.history.push("/");
                 }}
               >
-                <img src={logo} alt="logo" height="70px" width="70"></img>
+                <img
+                  src={logo}
+                  alt="logo"
+                  height="70px"
+                  width="70"
+                  style={{
+                    background: "white",
+                    borderRadius: "44px",
+                    outline: "#33CCCC solid 2px",
+                  }}
+                ></img>
               </Button>
 
               <Typography

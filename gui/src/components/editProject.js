@@ -138,60 +138,81 @@ class EditProject extends Component {
     console.log(props);
 
     return (
-      <div style={{ backgroundColor: "#FFE4C4", height: "100vh" }}>
+      <div style={{ backgroundColor: "#d3d3d2", height: "100vh" }}>
+        <div style={{ height: "40px" }}></div>
         <form noValidate autoComplete="off">
-          <div className="container"
-          style={{width: "50%"}}>
-          <TableContainer component={Paper} style={{ display: "inline-block" }}>
-            <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#FFE4C4" }}>
-                <TableRow>
-                  <TableCell>Id Proiect: </TableCell>
-                  <TableCell>
-                    #{this.props.location.state.id_p}
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell>Denumire:</TableCell>
-                  <TableCell>
+          <div className="container" style={{ width: "50%" }}>
+            <TableContainer
+              component={Paper}
+              style={{
+                display: "inline-block",
+                borderTopRightRadius: "22px",
+                borderTopLeftRadius: "22px",
+              }}
+            >
+              <Table aria-label="simple table">
+                <TableHead style={{ backgroundColor: "#161412" }}>
+                  <TableRow>
+                    <TableCell
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Id Proiect:{" "}
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      #{this.props.location.state.id_p}
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Denumire:</TableCell>
+                    <TableCell>
                       <TextField
                         id="component-filled"
                         defaultValue={this.props.location.state.denumire}
                         onChange={this.handleNameChange}
                       />
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Descriere:</TableCell>
-                  <TableCell>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Descriere:</TableCell>
+                    <TableCell>
                       <TextField
                         id="component-filled"
                         defaultValue={this.props.location.state.desc}
                         onChange={this.handleDescriptionChange}
                       />
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Link GitHub:</TableCell>
-                  <TableCell>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Link GitHub:</TableCell>
+                    <TableCell>
                       <TextField
                         id="component-filled"
                         defaultValue={this.props.location.state.link_git}
                         onChange={this.handleGitLinkChange}
                       />
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Id Categorie:</TableCell>
-                  <TableCell>
-                    #{this.props.location.state.id_categorie}
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Id Categorie:</TableCell>
+                    <TableCell>
+                      #{this.props.location.state.id_categorie}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
           </div>
 
           <Button
@@ -200,18 +221,35 @@ class EditProject extends Component {
             size="large"
             onClick={() => this.updateProject(this.props.location.state.id_p)}
             startIcon={<SaveIcon />}
-            style={{ color: "white", backgroundColor: "#931621" }}
+            style={{
+              borderRadius: "20px",
+              color: "black",
+              backgroundColor: "white",
+              fontWeight: "bold",
+              fontFamily: "VAG Rounded",
+              outline: "black solid 2px",
+              top: "10px",
+            }}
           >
             Save
           </Button>
-          
+
           <Button
             variant="contained"
             color="primary"
             size="large"
             onClick={() => this.deleteProject(this.props.location.state.id_p)}
             startIcon={<DeleteIcon />}
-            style={{ color: "white", backgroundColor: "#931621" }}
+            style={{
+              borderRadius: "20px",
+              color: "black",
+              backgroundColor: "white",
+              fontWeight: "bold",
+              fontFamily: "VAG Rounded",
+              outline: "black solid 2px",
+              left: "20px",
+              top: "10px",
+            }}
           >
             Delete
           </Button>

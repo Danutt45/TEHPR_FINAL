@@ -107,7 +107,7 @@ class Project extends Component {
     const props = this.props;
 
     return (
-      <div style={{ backgroundColor: "#FFF6EB", height: "70vh" }}>
+      <div style={{ backgroundColor: "#d3d3d2", height: "90vh" }}>
         {this.state.loaded && (
           <div
             className="container"
@@ -137,13 +137,32 @@ class Project extends Component {
             >
               <TableContainer
                 component={Paper}
-                style={{ display: "inline-block" }}
+                style={{
+                  display: "inline-block",
+                  borderTopRightRadius: "22px",
+
+                  borderTopLeftRadius: "22px",
+                }}
               >
                 <Table aria-label="simple table">
-                  <TableHead style={{ backgroundColor: "#FFE4C4" }}>
+                  <TableHead style={{ backgroundColor: "#161412" }}>
                     <TableRow>
-                      <TableCell>Id Proiect: </TableCell>
-                      <TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Id Proiect:{" "}
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
                         #{this.state.currentProject.id_proiect}
                       </TableCell>
                     </TableRow>
@@ -187,13 +206,19 @@ class Project extends Component {
                 color="primary"
                 size="large"
                 startIcon={<EditIcon />}
-                style={{ color: "white", backgroundColor: "#931621" }}
+                style={{
+                  borderRadius: "20px",
+                  backgroundColor: "white",
+                  fontWeight: "bold",
+                  fontFamily: "VAG Rounded",
+                  outline: "black solid 2px",
+                }}
               >
                 <Link
                   style={{
                     display: "inline-block",
                     textDecoration: "none",
-                    color: "white",
+                    color: "black",
                   }}
                   to={{
                     pathname: `/EditProject/${this.state.currentProject.id_proiect}`,
@@ -222,18 +247,78 @@ class Project extends Component {
         </Typography>
         <div className="container">
           <div className="center">
-            <TableContainer component={Paper}>
+            <TableContainer
+              component={Paper}
+              style={{
+                borderTopRightRadius: "22px",
+
+                borderTopLeftRadius: "22px",
+              }}
+            >
               <Table aria-label="simple table">
                 <TableHead
-                  style={{ backgroundColor: "#FFE4C4", height: "100%" }}
+                  style={{ backgroundColor: "#161412", height: "100%" }}
                 >
                   <TableRow>
-                    <TableCell align="right">Id</TableCell>
-                    <TableCell>Descriere:</TableCell>
-                    <TableCell align="right">Prioritate</TableCell>
-                    <TableCell align="right">Severitate</TableCell>
-                    <TableCell align="right">Id Categorie</TableCell>
-                    <TableCell align="right">Id User</TableCell>
+                    <TableCell
+                      align="right"
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Id
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Descriere:
+                    </TableCell>
+                    <TableCell
+                      align="right"
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Prioritate
+                    </TableCell>
+                    <TableCell
+                      align="right"
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Severitate
+                    </TableCell>
+                    <TableCell
+                      align="right"
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Id Categorie
+                    </TableCell>
+                    <TableCell
+                      align="right"
+                      style={{
+                        fontWeight: "bold",
+                        fontFamily: "VAG Rounded",
+                        color: "white",
+                      }}
+                    >
+                      Id User
+                    </TableCell>
                     <TableCell align="right">
                       {" "}
                       <Link to={{ pathname: `/formBug/` }}>
