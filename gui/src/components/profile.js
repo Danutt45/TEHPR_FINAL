@@ -33,7 +33,7 @@ class Profile extends Component {
       return (
         <div
           style={{
-            backgroundColor: "#FFF6EB",
+            backgroundColor: "#d3d3d3",
             height: "100%",
             width: "100%",
             minWidth: "100vw",
@@ -67,12 +67,33 @@ class Profile extends Component {
                 width: "30%",
               }}
             >
-              <TableContainer component={Paper}>
+              <TableContainer
+                component={Paper}
+                style={{
+                  borderRadius: "22px",
+                }}
+              >
                 <Table aria-label="simple table">
-                  <TableHead style={{ backgroundColor: "#FFE4C4" }}>
+                  <TableHead style={{ backgroundColor: "black" }}>
                     <TableRow>
-                      <TableCell>Profil</TableCell>
-                      <TableCell>UID: #{this.state.id}</TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Profil
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        UID: #{this.state.id}
+                      </TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>

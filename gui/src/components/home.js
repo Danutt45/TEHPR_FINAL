@@ -118,11 +118,11 @@ class Home extends Component {
     //this.addRows();
     //console.log(this.state.data);
 
-    let l = this.state.projects.length - 1
-    l = l? l : 1
-    let k = 10 ** Math.floor(Math.log10(l))
-    let d = Math.floor(l / k)
-    let p = d * k
+    let l = this.state.projects.length - 1;
+    l = l ? l : 1;
+    let k = 10 ** Math.floor(Math.log10(l));
+    let d = Math.floor(l / k);
+    let p = d * k;
 
     if (this.props.user.user) {
       return (
@@ -141,15 +141,55 @@ class Home extends Component {
           >
             Over {p} projects have joined us already! What are you waiting for?
           </Typography>
-          <div className="container" style={{ height: "120vh" }}>
+          <div
+            className="container"
+            style={{
+              height: "120vh",
+            }}
+          >
             <div className="left">
-              <TableContainer component={Paper}>
+              <TableContainer
+                component={Paper}
+                style={{
+                  borderTopRightRadius: "22px",
+                  borderTopLeftRadius: "22px",
+                }}
+              >
                 <Table aria-label="simple table">
-                  <TableHead style={{ backgroundColor: "#FFE4C4" }}>
+                  <TableHead
+                    style={{
+                      backgroundColor: "black",
+                    }}
+                  >
                     <TableRow>
-                      <TableCell align="left">Id</TableCell>
-                      <TableCell>Denumire</TableCell>
-                      <TableCell>Categorie</TableCell>
+                      <TableCell
+                        align="left"
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Id
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Denumire
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Categorie
+                      </TableCell>
                       <TableCell align="right">
                         <Link
                           style={{ textDecoration: "none", color: "#931621" }}
@@ -164,7 +204,7 @@ class Home extends Component {
                             variant="contained"
                             style={{
                               color: "white",
-                              backgroundColor: "#931621",
+                              backgroundColor: "black",
                             }}
                           >
                             <img
@@ -260,12 +300,39 @@ class Home extends Component {
     
                         */}
             <div className="left">
-              <TableContainer component={Paper}>
+              <TableContainer
+                component={Paper}
+                style={{
+                  borderTopLeftRadius: "22px",
+                  borderTopRightRadius: "22px",
+                }}
+              >
                 <Table aria-label="simple table">
-                  <TableHead style={{ backgroundColor: "#FFE4C4" }}>
+                  <TableHead
+                    style={{
+                      backgroundColor: "black",
+                    }}
+                  >
                     <TableRow>
-                      <TableCell align="right">Id</TableCell>
-                      <TableCell>Denumire</TableCell>
+                      <TableCell
+                        align="right"
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Id
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          fontWeight: "bold",
+                          fontFamily: "VAG Rounded",
+                          color: "white",
+                        }}
+                      >
+                        Denumire
+                      </TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>

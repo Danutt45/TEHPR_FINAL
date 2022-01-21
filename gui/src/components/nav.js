@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
-import logo from "../icons/logo.png";
+import logo from "../icons/spyware.gif";
 import { RETURN_USER } from "../redux/actionCreators";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -16,11 +16,13 @@ class Nav extends Component {
       return (
         <React.Fragment>
           <AppBar
-            style={{position: "relative",
-            backgroundColor: "#161412",
-            width: "100%",
-            borderBottomLeftRadius: "50px",
-            borderBottomRightRadius: "50px",}}
+            style={{
+              position: "relative",
+              backgroundColor: "#161412",
+              width: "100%",
+              borderBottomLeftRadius: "50px",
+              borderBottomRightRadius: "50px",
+            }}
           >
             <Toolbar>
               <Button
@@ -37,9 +39,7 @@ class Nav extends Component {
                 fontSize="15rem"
                 variant="h6"
                 color="textPrimary"
-              >
-                Let's fix your app together!
-              </Typography>
+              ></Typography>
 
               <div style={{ flex: 1 }}></div>
 
@@ -47,11 +47,13 @@ class Nav extends Component {
                 <div className="appBarButtons">
                   <Button
                     variant="contained"
-                    style={{color: "black",
-                    backgroundColor: "d3d3d2",
-                    borderRadius: "14px",
-                    fontWeight: "bold",
-                    fontFamily: "VAG Rounded"}}
+                    style={{
+                      color: "black",
+                      backgroundColor: "d3d3d2",
+                      borderRadius: "14px",
+                      fontWeight: "bold",
+                      fontFamily: "VAG Rounded",
+                    }}
                     onClick={() => {
                       props.history.push("/Login");
                     }}
@@ -63,11 +65,13 @@ class Nav extends Component {
 
                   <Button
                     variant="contained"
-                    style={{color: "black",
-                    backgroundColor: "d3d3d2",
-                    borderRadius: "14px",
-                    fontWeight: "bold",
-                    fontFamily: "VAG Rounded",}}
+                    style={{
+                      color: "black",
+                      backgroundColor: "d3d3d2",
+                      borderRadius: "14px",
+                      fontWeight: "bold",
+                      fontFamily: "VAG Rounded",
+                    }}
                     onClick={() => {
                       props.history.push("/Register");
                     }}
@@ -84,25 +88,37 @@ class Nav extends Component {
       return (
         <React.Fragment>
           <AppBar
-            style={{position: "relative",
-            backgroundColor: "#161412",
-            width: "100%",
-            borderBottomLeftRadius: "50px",
-            borderBottomRightRadius: "50px",
+            style={{
+              position: "relative",
+              backgroundColor: "#161412",
+              width: "100%",
+              borderBottomLeftRadius: "50px",
+              borderBottomRightRadius: "50px",
             }}
           >
             <Toolbar>
               <Button
-                style={{ color: "white",
-                borderWidth: "20px",
-                borderColor: "black",
-                overflow: "hidden"
-              }}
+                style={{
+                  color: "white",
+                  borderWidth: "20px",
+                  borderColor: "black",
+                  overflow: "hidden",
+                }}
                 onClick={() => {
                   props.history.push("/");
                 }}
               >
-                <img src={logo} alt="logo" height="70px" width="70"></img>
+                <img
+                  src={logo}
+                  alt="logo"
+                  height="70px"
+                  width="70"
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: "50px",
+                    outline: "#33CCCC solid 2px",
+                  }}
+                ></img>
               </Button>
 
               <Typography
@@ -110,9 +126,7 @@ class Nav extends Component {
                 fontSize="15rem"
                 variant="h6"
                 color="textPrimary"
-              >
-                Let's fix your app together!
-              </Typography>
+              ></Typography>
 
               <div style={{ flex: 1 }}></div>
 
@@ -122,18 +136,32 @@ class Nav extends Component {
 
                   <Button
                     variant="contained"
-                    style={{ color: "white", backgroundColor: "#931621" }}
+                    style={{
+                      color: "white",
+                      backgroundColor: "#161412",
+                      borderRadius: "40px",
+                    }}
                     onClick={() => {
                       props.history.push("/Profile");
                     }}
                   >
                     {this.props.username}
-                    <img src={usr} alt="usr" height="40px" width="40"></img>
+                    <img
+                      src={usr}
+                      alt="usr"
+                      height="40px"
+                      width="40"
+                      style={{ backgroundColor: "white", borderRadius: "40px" }}
+                    ></img>
                   </Button>
                   <div className="divider"></div>
                   <Button
                     variant="contained"
-                    style={{ color: "white", backgroundColor: "#931621" }}
+                    style={{
+                      color: "white",
+                      backgroundColor: "#161412",
+                      borderRadius: "22px",
+                    }}
                     onClick={() => {
                       props.history.push("/");
                       window.location.reload();

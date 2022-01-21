@@ -88,13 +88,21 @@ class Register extends Component {
             style={{
               float: "center",
               marginTop: "5%",
-              backgroundColor: "#FFE4C4",
+              backgroundColor: "white",
               width: 300,
               height: 300,
               borderRadius: "25px",
+              outline: "black solid 2px",
             }}
           >
-            <div style={{ height: "20px" }}></div>
+            <div
+              style={{
+                height: "20px",
+                backgroundColor: "black",
+                borderBottomLeftRadius: "22px",
+                borderBottomRightRadius: "22px",
+              }}
+            ></div>
 
             <FormControl>
               <InputLabel htmlFor="username-input">Username</InputLabel>
@@ -121,7 +129,14 @@ class Register extends Component {
             <div style={{ height: "50px" }}></div>
 
             <Button
-              style={{ backgroundColor: "#931621" }}
+              style={{
+                borderRadius: "20px",
+                color: "black",
+                backgroundColor: "white",
+                fontWeight: "bold",
+                fontFamily: "VAG Rounded",
+                outline: "black solid 2px",
+              }}
               onClick={this.handleRegister}
               variant="contained"
               color="primary"

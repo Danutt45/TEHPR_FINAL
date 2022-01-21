@@ -105,14 +105,15 @@ class Login extends Component {
           <div>
             <Container
               id="logInContainer"
-              style={{float: "left",
-              marginTop: "5%",
-              marginLeft: "30%",
-              backgroundColor: "white",
-              width: 300,
-              height: "300px",
-              borderRadius: "25px",
-              outline: "#000000 solid 4px"
+              style={{
+                float: "left",
+                marginTop: "5%",
+                marginLeft: "30%",
+                backgroundColor: "white",
+                width: 300,
+                height: "300px",
+                borderRadius: "25px",
+                outline: "#000000 solid 4px",
               }}
             >
               <div
@@ -150,12 +151,14 @@ class Login extends Component {
               <div style={{ height: "50px" }}></div>
 
               <Button
-                style={{borderRadius: "20px",
-                color: "black",
-                backgroundColor: "white",
-                fontWeight: "bold",
-                fontFamily: "VAG Rounded",
-                outline: "black solid 2px",}}
+                style={{
+                  borderRadius: "20px",
+                  color: "black",
+                  backgroundColor: "white",
+                  fontWeight: "bold",
+                  fontFamily: "VAG Rounded",
+                  outline: "black solid 2px",
+                }}
                 onClick={this.handleLogIn}
                 variant="contained"
                 color="primary"
@@ -167,10 +170,12 @@ class Login extends Component {
             <img
               alt="developer-animation"
               id="animLogIn"
-              style={{float: "bottom",
-              marginLeft: "100px",
-              marginRight: "10%",
-              marginTop: "62px"}}
+              style={{
+                float: "bottom",
+                marginLeft: "100px",
+                marginRight: "10%",
+                marginTop: "62px",
+              }}
               src={dev}
             ></img>
           </div>
