@@ -1,3 +1,4 @@
+import { query } from "express";
 import { app, router } from "./init.js";
 
 import {
@@ -11,37 +12,29 @@ import {
 } from "./sequelize/sequelize.js";
 
 ////---------------PROJECTS-----------------////
-router.route("/projectsWithBugs").get((req, res) => {
-  Proiect.findAll({
-    include: [
-      {
-        model: Bugs,
-      },
-    ],
-  }).then((response) => res.json(response));
-});
-
-router.route("/projectWithBugs/:id_proiect").get((req, res) => {
-  Proiect.findAll({
-    include: [
-      {
-        model: Bugs,
-      },
-    ],
-    where: {
-      id_proiect: req.params.id_proiect,
-    },
-  }).then((response) => res.json(response));
-});
-
 router.route("/projects").get((req, res) => {
-  Proiect.findAll().then((proiect) => {
-    return res.json(proiect);
-  });
+  let inclArr = []
+  if (req.query.inclBugs)
+    inclArr.push({model: Bugs})
+  if (req.query.inclUser)
+    inclArr.push({model: User})
+  Proiect.findAll({
+    include: inclArr
+  }).then((response) => res.json(response));
 });
 
 router.route("/projects/:id_proiect").get((req, res) => {
-  Proiect.findByPk(req.params.id_proiect).then((result) => res.json(result));
+  let inclArr = []
+  if (req.query.inclBugs)
+    inclArr.push({model: Bugs})
+  if (req.query.inclUser)
+    inclArr.push({model: User})
+  Proiect.findAll({
+    include: inclArr,
+    where: {
+      id_proiect: req.params.id_proiect
+    }
+  }).then((response) => res.json(response));
 });
 
 router.route("/projects").post((req, res) =>
@@ -343,7 +336,7 @@ router.route("/users/:id_user").put((req, res) => {
     }
   )
     .then(() => {
-      res.json({ message: "Modification was successfully" });
+      res.json({ message: "Modification was successful." });
     })
     .catch((err) => res.json({ message: err.toString() }));
 });
